@@ -60,6 +60,27 @@ function newArray(arr) {
   return finalArray;
 }
 
+// 5. Sum of parameters
+
+function paramSum(n) {
+  let sum = n || 0;
+
+  function add(el) {
+    if (el === undefined) {
+      return sum;
+    } else {
+      sum += el;
+      return add;
+    }
+  }
+
+  if (n === undefined) {
+    return 0;
+  }
+
+  return add;
+}
+
 // examples
 
 var textexample = "nietzsche told gOd iS dEaD, but is hE?";
@@ -70,3 +91,4 @@ console.log("capitalize first letter only:", capitalize(textexample));
 console.log("Sentence case:", sentenceCase(textexample));
 console.log("Find missing element:", findMissing(missingarray));
 console.log("Array with unique elements:", newArray(randomarray));
+console.log("Sum of parameters:", paramSum(2)(3)(4)(5)());
